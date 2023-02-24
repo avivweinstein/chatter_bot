@@ -2,15 +2,18 @@
 
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
-from cleaner import clean_corpus
+from chatterbot.trainers import ChatterBotCorpusTrainer
+# from cleaner import clean_corpus
 
 CORPUS_FILE = "chat.txt"
 
 chatbot = ChatBot("Chatpot")
 
-trainer = ListTrainer(chatbot)
-cleaned_corpus = clean_corpus(CORPUS_FILE)
-trainer.train(cleaned_corpus)
+# trainer = ListTrainer(chatbot)
+trainer = ChatterBotCorpusTrainer(chatbot)
+trainer.train("chatterbot.corpus.english")
+# cleaned_corpus = clean_corpus(CORPUS_FILE)
+# trainer.train(cleaned_corpus)
 
 # trainer.train([
 #     "Hi",
